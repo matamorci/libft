@@ -6,7 +6,7 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 13:12:58 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/27 17:31:59 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/27 18:22:06 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ size_t	ft_strlen(const char *str)
 	{
 		++n;
 	}
-	return (n);
+	return ((size_t)n);
 }
