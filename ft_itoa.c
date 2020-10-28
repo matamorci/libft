@@ -6,12 +6,11 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 12:20:28 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/28 12:16:28 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 12:34:30 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static int			ft_nblen(unsigned int n)
 {

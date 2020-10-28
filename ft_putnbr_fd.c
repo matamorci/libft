@@ -6,7 +6,7 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 12:00:51 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/28 12:23:56 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 12:35:42 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ void		ft_putnbr_fd(int n, int fd)
 	}
 	else
 		ft_putchar_fd(nb + 48, fd);
-} 
+}
