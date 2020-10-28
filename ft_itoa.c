@@ -6,46 +6,51 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 12:20:28 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/27 13:57:28 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 12:16:28 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_is_negative(long *n, int *negative)
+
+static int			ft_nblen(unsigned int n)
 {
-	if (*n < 0)
+	unsigned int	i;
+
+	i = 0;
+	while (n >= 10)
 	{
-		*n *= -1;
-		*negative = 1;
+		n /= 10;
+		i++;
 	}
+	return (i + 1);
 }
 
-char			*ft_itoa(long n)
+char				*ft_itoa(int n)
 {
-	long		mem;
-	int			i;
-	int			neg;
-	char		*str;
+	char			*dest;
+	unsigned int	len;
+	unsigned int	nb;
+	unsigned int	i;
 
-	mem = n;
-	i = 2;
-	neg = 0;
-	ft_is_negative(&n, &neg);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	while (mem /= 10)
-		i++;
-	i += neg;
-	if (!(str = (char*)malloc(sizeof(char) * i)))
+	nb = (n < 0 ? -n : n);
+	len = ft_nblen(nb);
+	i = 0;
+	if (!(dest = (char *)malloc(sizeof(char) * len + 1 + (n < 0 ? 1 : 0))))
 		return (NULL);
-	str[--i] = '\0';
-	while (i--)
+	if (n < 0)
 	{
-		str[i] = n % 10 + '0';
-		n = n / 10;
+		dest[i] = '-';
+		len++;
 	}
-	if (neg)
-		str[0] = '-';
-	return (str);
+	i = len - 1;
+	while (nb >= 10)
+	{
+		dest[i] = nb % 10 + 48;
+		nb /= 10;
+		i--;
+	}
+	dest[i] = nb % 10 + 48;
+	dest[len] = '\0';
+	return (dest);
 }

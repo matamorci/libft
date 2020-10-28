@@ -6,31 +6,30 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 13:07:44 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/27 13:35:36 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 11:52:47 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *nptr)
 {
-	int	nb;
-	int	i;
-	int	neg;
+	size_t	i;
+	char	n;
+	size_t	out;
 
-	nb = 0;
 	i = 0;
-	neg = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	out = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
-	if (str[i] == '-')
+	if (nptr[i] == '-' || nptr[i] == '+')
+		n = nptr[i++];
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		neg = -1;
+		out = out * 10 + nptr[i] - 48;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] && ft_isdigit(str[i]) == 1)
-		nb = nb * 10 + str[i++] - 48;
-	return (neg * nb);
+	if (n == '-')
+		out = -out;
+	return (out);
 }

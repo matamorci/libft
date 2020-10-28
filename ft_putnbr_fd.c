@@ -6,16 +6,27 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 12:00:51 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/26 12:01:14 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 12:23:56 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	long	nb;
 
-	str = ft_itoa(n);
-	ft_putstr_fd(str, fd);
-}
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+		ft_putchar_fd(nb + 48, fd);
+} 

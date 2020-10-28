@@ -6,7 +6,7 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 13:11:43 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/27 11:47:03 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 11:30:52 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char			*cpy;
 	char			*pst;
 
-	if (dest == 0 || src == 0)
-		return (0);
+	if (dest == 0 && src == 0)
+		return (NULL);
 	c = 0;
 	cpy = (char*)src;
 	pst = (char*)dest;

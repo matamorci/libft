@@ -6,25 +6,26 @@
 /*   By: ftorrent <ftorrent@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 17:56:02 by ftorrent          #+#    #+#             */
-/*   Updated: 2020/10/14 18:07:18 by ftorrent         ###   ########.fr       */
+/*   Updated: 2020/10/28 12:09:44 by ftorrent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	*ptr;
-	int		cont;
+	char			*dst;
+	unsigned int	total;
+	unsigned int	i;
 
-	cont = 0;
-	if ((nitems * size) == 0)
-		return (0);
-	ptr = malloc(nitems * size);
-	while ((size_t)cont < (nitems * size))
+	total = count * size;
+	if (!(dst = malloc(total)))
+		return (NULL);
+	i = 0;
+	while (total--)
 	{
-		((char*)ptr)[cont] = 0;
-		++cont;
+		dst[i] = 0;
+		i++;
 	}
-	return (ptr);
+	return ((void *)dst);
 }
